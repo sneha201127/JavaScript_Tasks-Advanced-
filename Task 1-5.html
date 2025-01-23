@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Basics</title>
+</head>
+<body>
+  <script>
+    // Task 1: 
+    console.log("-- FACTORIAL --");
+   function fact(num){
+    if(num==0 || num==1){
+        return 1; 
+    }
+    return num*fact(num-1);
+   }
+   for(let i=1;i<=5;i++){
+   console.log(`Factorial of ${i} is:${fact(i)}`);
+   }
+
+    // Task 2: 
+    console.log("-- FIBONACCI --");
+    function fib(num){
+        if(num==0) return 0;
+        if(num==1) return 1;
+        return fib(num-1)+fib(num-2);
+    }
+    for(let i=2;i<=10;i++){
+        console.log(`Fibonacci of ${i} is: ${fib(i)}`);
+    }
+
+    // Task 3: 
+
+    function stairs(num){
+        if(num==0) return 1;
+        if(num < 0) return 0;
+        return stairs(num-1)+stairs(num-2)+stairs(num-3);
+    }
+    console.log("Total number of ways to climb:", stairs(10));
+   
+
+    // Task 4: 
+
+    function flat(arr){
+        let res=[];
+        for(const i of arr){
+            if(Array.isArray(i)){
+                res=res.concat(flat(i));
+            }
+            else{
+                res.push(i);
+            }
+        }
+        return res;
+    }
+    console.log(flat([5,[6,[7,8], 2], 4]));
+    
+
+    // Task 5:
+    function towerOfHanoi(n,source,dest,aux){
+        if(n===1){
+            console.log(`move rod 1 from ${source} to ${dest}`);
+            return;
+        }
+        towerOfHanoi(n-1,source,aux,dest);
+        console.log(`move rod ${n} from ${source} to ${dest}`);
+        towerOfHanoi(n-1,aux,dest,source);
+    }
+    console.log(towerOfHanoi(3,'A','C','B'));
+
+    </script>
+</body>
+</html>
