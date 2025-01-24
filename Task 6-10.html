@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Basics</title>
+</head>
+<body>
+  <script>
+    // Task 6: 
+    
+    function sum(...nums){
+      return nums.reduce((total, number)=>total+number,0);
+    }
+    console.log(sum(1,2,3,4,5)); //15
+
+    // Task 7: 
+  function sumArray(numbers){
+    return sum(...numbers);
+  }
+  const Arr=[1,2,3,4,5,6,7,8,9,10];
+  const result=sumArray(Arr);
+  console.log(result);    //55
+
+
+    // Task 8: 
+
+    function deepClone(obj){
+      return JSON.parse(JSON.stringify(obj));
+    }
+    
+    const ori={name:"John",details:{Age:23,Gender:"Male"}};
+    const clone=deepClone(ori);
+    clone.details.Age=50;
+
+    console.log(ori); // {name: 'John', details:{Age: 23, Gender: 'Male'}}
+    console.log(clone); // {name: 'John', details:{Age: 50, Gender: 'Male'}}
+
+   
+
+    // Task 9: 
+
+    function mergeObj(obj1, obj2) {
+    return { ...obj1, ...obj2 };
+}
+
+
+const seller = { name: "Rahul", age: 25 };
+const buyer= { city: "Paris", age: 30 }; 
+const merge = mergeObj(seller, buyer);
+
+console.log(merge); // Output: { name: "Rahul", age: 30, city: "Paris" }
+
+    
+    
+
+    // Task 10:
+    function serialize(obj) {
+    const String = JSON.stringify(obj);
+    return JSON.parse(String);
+}
+
+
+const original = { name: "Kitty", age: 25, city: "England" };
+const parsedObj = serialize(original);
+
+console.log(parsedObj); // Output: { name: "Kitty", age: 25, city: "England" }
+
+    </script>
+</body>
+</html>
